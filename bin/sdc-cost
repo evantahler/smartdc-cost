@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+
+var common = require(__dirname + "../lib/common.js");
+console.log(common)
