@@ -16,6 +16,6 @@
     "optimist":"0.3.x"
   },
   "bin": {
-    "x": "./bin/x"
+    "sdc-listmachines-cost": "./bin/sdc-listmachines-cost"
   }
 }
