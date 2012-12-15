@@ -16,4 +16,5 @@ common.listmachinesCost(function(results){
   console.log("Total:");
   console.log(" > $" + results.total.toFixed(2) + "/hr")
   console.log(" > $" + (results.total * 24 * 30).toFixed(2) + "/month")
+  console.log(" > $" + (results.total * 24 * 365).toFixed(2) + "/year")
 });
