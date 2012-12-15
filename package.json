@@ -12,7 +12,7 @@
     "node": ">=0.6.0"
   },
   "dependencies": {
-    "smartdc":"6.5.4",
+    "smartdc":"6.5.4"
   },
   "bin": {
     "sdc-listmachines-cost": "./bin/sdc-listmachines-cost"
