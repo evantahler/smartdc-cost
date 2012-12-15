@@ -1,20 +1,42 @@
 #!/usr/bin/env node
 
 var common = require(__dirname + "/../lib/common.js").common;
+var argv = require('optimist').argv;
+
+var foramts = {
+  human: function(results){
+    console.log("Devices:");
+    for(var i in results.devices){
+      var device = results.devices[i];
+      console.log(" > " + device.name + " @ " + device.ip + " (" + device.type + ") => $" + device.price + "/hr");
+    }
+    console.log("");
+    console.log("Total:");
+    console.log(" > $" + results.totals.hourly + "/hr");
+    console.log(" > $" + results.totals.monthly + "/month");
+    console.log(" > $" + results.totals.yearly + "/year");
+  },
+  JSON: function(results){
+    console.log(results);
+  },
+  json: function(results){
+    console.log(results);
+  },
+};
+
 common.listmachinesCost(function(results){
   results.devices.sort(function(a,b){
     if(a.name > b.name){ return 1; }
     if(a.name == b.name){ return 0; }
     if(a.name < b.name){ return -1; }
   });
-  console.log("Devices:")
-  for(var i in results.devices){
-    var device = results.devices[i];
-    console.log(" > " + device.name + " @ " + device.ip + " (" + device.type + ") => $" + device.price + "/hr");
+
+  var format = "JSON";
+  if(argv.format != null){
+    if(typeof foramts[argv.format] === 'function'){
+      format = argv.format;
+    }
   }
-  console.log("");
-  console.log("Total:");
-  console.log(" > $" + results.total.toFixed(2) + "/hr")
-  console.log(" > $" + (results.total * 24 * 30).toFixed(2) + "/month")
-  console.log(" > $" + (results.total * 24 * 365).toFixed(2) + "/year")
+
+  foramts[format](results);
 });

@@ -5,7 +5,32 @@ Extensions to the Joyent Smart Datacenter API for the financialy minded.
 `npm install smartdc-cost -g`
 
 ## Use 
-`sdc-listmachines-cost` will return results like this:
+`sdc-listmachines-cost`
+
+you can pass `--format` to define the type of output. Options are:
+### `sdc-listmachines-cost --format=JSON`  (default)
+
+```
+  { 
+    totals: { 
+      hourly: '0.12', 
+      monthly: '82.80', 
+      yearly: '1051.20' 
+    },
+    devices: 
+     [ { name: 'Host1',
+         ip: '123.123.123.123',
+         type: 'Extra Small 512 MB',
+         price: 0.03 },
+       { name: 'Host2',
+         ip: '456.456.456.456',
+         type: 'Small 1GB',
+         price: 0.085 },
+     ]
+  }
+```
+
+### `sdc-listmachines-cost --format=human`
 
 ```
   Devices:
