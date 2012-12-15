@@ -1,7 +1,7 @@
 {
   "author": "Evan Tahler <evantahler@gmail.com>",
   "name": "smartdc-cash",
-  "description": "actionHero is a node.js API framework for both tcp sockets, web sockets, and http clients.  The goal of actionHero are to create an easy-to-use toolkit for making reusable & scalable APIs",
+  "description": "Extra commands added to Joyent's smartdc package for the financially conscious",
   "version": "0.0.1",
   "repository": {
     "type": "git",
