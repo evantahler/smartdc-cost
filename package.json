@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "smartdc":"6.5.4",
-    "optimist":"0.3.x"
   },
   "bin": {
     "sdc-listmachines-cost": "./bin/sdc-listmachines-cost"
