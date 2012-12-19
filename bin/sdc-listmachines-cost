@@ -33,9 +33,9 @@ var sorts = {
     if(a.name < b.name){ return -1; }
   },
   price: function(a,b){
-    if(a.price > b.price){ return -1; }
-    if(a.price == b.price){ return 0; }
-    if(a.price < b.price){ return 1; }
+    if(a.prices.day > b.prices.day){ return -1; }
+    if(a.prices.day == b.prices.day){ return 0; }
+    if(a.prices.day < b.prices.day){ return 1; }
   }
 };
 
