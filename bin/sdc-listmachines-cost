@@ -2,34 +2,52 @@
 
 var common = require(__dirname + "/../lib/common.js").common;
 var argv = require('optimist').argv;
+var util = require('util');
 
 var foramts = {
-  human: function(results){
+  human: function(results, period){
     console.log("Devices:");
     for(var i in results.devices){
       var device = results.devices[i];
-      console.log(" > " + device.name + " @ " + device.ip + " (" + device.type + ") => $" + device.price + "/hr");
+      console.log(" > " + device.name + " @ " + device.ip + " (" + device.type + ") => $" + device.prices[period] + "/" + period);
     }
     console.log("");
     console.log("Total:");
-    console.log(" > $" + results.totals.hourly + "/hr");
-    console.log(" > $" + results.totals.monthly + "/month");
-    console.log(" > $" + results.totals.yearly + "/year");
+    console.log(" > $" + results.totals.hour + "/hour");
+    console.log(" > $" + results.totals.day + "/day");
+    console.log(" > $" + results.totals.month + "/month");
+    console.log(" > $" + results.totals.year + "/year");
   },
-  JSON: function(results){
-    console.log(results);
+  JSON: function(results, period){
+    console.log(util.inspect(results, false, 10, true));
   },
-  json: function(results){
-    console.log(results);
+  json: function(results, period){
+    console.log(util.inspect(results, false, 10, true));
   },
 };
 
-common.listmachinesCost(function(results){
-  results.devices.sort(function(a,b){
+var sorts = {
+  alphabetical: function(a,b){
     if(a.name > b.name){ return 1; }
     if(a.name == b.name){ return 0; }
     if(a.name < b.name){ return -1; }
-  });
+  },
+  price: function(a,b){
+    if(a.price > b.price){ return -1; }
+    if(a.price == b.price){ return 0; }
+    if(a.price < b.price){ return 1; }
+  }
+};
+
+common.listmachinesCost(function(results){
+
+  var sort = "alphabetical";
+  if(argv.sort != null){
+    if(typeof sorts[argv.sort] === 'function'){
+      sort = argv.sort;
+    }
+  }
+  results.devices.sort(sorts[sort]);
 
   var format = "JSON";
   if(argv.format != null){
@@ -38,5 +56,12 @@ common.listmachinesCost(function(results){
     }
   }
 
-  foramts[format](results);
+  var period = "hour"
+  if(argv.period != null){
+    if(['hour', 'day', 'month', 'year'].indexOf(argv.period) >= 0){
+      period = argv.period;
+    }
+  }
+
+  foramts[format](results, period);
 });

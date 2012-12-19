@@ -6,39 +6,63 @@ Extensions to the Joyent Smart Datacenter API for the financialy minded.
 
 ## Use 
 `sdc-listmachines-cost`
+ 
+ **Options**
 
-you can pass `--format` to define the type of output. Options are:
-### `sdc-listmachines-cost --format=JSON`  (default)
+ --format: "human" or "JSON"
+   default: JSON
+
+ --sort: "alphabetical" or "price"
+   default: alphabetical
+
+ --period: "hour", "day", "month", or "year" (if you are using the --format=human flag)
+   default: hour
+
+## Examples
+
+*`sdc-listmachines-cost`*
 
 ```
   { 
     totals: { 
-      hourly: '0.12', 
-      monthly: '82.80', 
-      yearly: '1051.20' 
+      hour: '0.12', 
+      day: '3.12'
+      month: '82.80', 
+      year: '1051.20' 
     },
     devices: 
      [ { name: 'Host1',
          ip: '123.123.123.123',
          type: 'Extra Small 512 MB',
-         price: 0.03 },
+         prices: { 
+           day: '0.72',
+           year: '262.80',
+           month: '22.32',
+           hour: '0.03' }
+        },
        { name: 'Host2',
          ip: '456.456.456.456',
          type: 'Small 1GB',
-         price: 0.085 },
+         prices: { 
+           day: '2.04',
+           year: '744.60',
+           month: '61.20',
+           hour: '0.085' }
+         },
      ]
   }
 ```
 
-### `sdc-listmachines-cost --format=human`
+*`sdc-listmachines-cost --format=human --sort=price --period=day`*
 
 ```
   Devices:
-   > Host1 @ 123.123.123.123 (Extra Small 512 MB) => $0.03/hr
-   > Host2 @ 456.456.456.456 (Small 1GB) => $0.085/hr
+   > Host2 @ 456.456.456.456 (Small 1GB) => $2.04/day
+   > Host1 @ 123.123.123.123 (Extra Small 512 MB) => $0.72/day
 
   Total:
    > $0.12/hr
+   > $3.12/day
    > $82.80/month
    > $1051.20/year
 ```
