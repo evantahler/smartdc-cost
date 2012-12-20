@@ -34,8 +34,12 @@ var sorts = {
   },
   price: function(a,b){
     if(a.prices.day > b.prices.day){ return -1; }
-    if(a.prices.day == b.prices.day){ return 0; }
     if(a.prices.day < b.prices.day){ return 1; }
+    if(a.prices.day == b.prices.day){ 
+      if(a.name > b.name){ return 1; }
+      if(a.name == b.name){ return 0; }
+      if(a.name < b.name){ return -1; }
+    }
   }
 };
 
