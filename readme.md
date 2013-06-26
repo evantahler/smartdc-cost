@@ -21,7 +21,7 @@ Extensions to the Joyent Smart Datacenter API for the financially minded.
 
 *`sdc-listmachines-cost`*
 
-```
+```javascript
   { 
     totals: { 
       hour: '0.12', 
@@ -54,7 +54,7 @@ Extensions to the Joyent Smart Datacenter API for the financially minded.
 
 *`sdc-listmachines-cost --format=human --sort=price --period=day`*
 
-```
+```bash
   Devices:
    > Host2 @ 456.456.456.456 (Small 1GB) => $2.04/day
    > Host1 @ 123.123.123.123 (Extra Small 512 MB) => $0.72/day
