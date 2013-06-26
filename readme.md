@@ -1,5 +1,5 @@
 # smartdc-cost
-Extensions to the Joyent Smart Datacenter API for the financialy minded.
+Extensions to the Joyent Smart Datacenter API for the financially minded.
 
 ## Install
 `npm install smartdc-cost -g`
@@ -9,14 +9,13 @@ Extensions to the Joyent Smart Datacenter API for the financialy minded.
  
  **Options**
 
- --format: "human" or "JSON"
-   default: JSON
-
- --sort: "alphabetical" or "price"
-   default: alphabetical
-
- --period: "hour", "day", "month", or "year" (if you are using the --format=human flag)
-   default: hour
+- format: `human` or `json`
+  - default: json
+- sort: `alphabetical` or `price`
+  - default: alphabetical
+- period: `hour`, `day`, `month`, or `year` 
+  - only valid if you are using the `--format=human` flag
+  - default: hour
 
 ## Examples
 
@@ -68,9 +67,14 @@ Extensions to the Joyent Smart Datacenter API for the financialy minded.
 ```
 
 ## Notes
-Currently, the binary package(s) assume you will be runnign the commands from bash, and have the following envrionment variables set for the normal smartdc API:
+There are some packages which joyent no longer lists prices for.  These prices are either coppied from earlier data, or assumed based on the most similar current package.
 
- - `SDC_CLI_URL` url for the Joyent API (something like `https://us-sw-1.api.joyentcloud.com/`)
- - `SDC_CLI_ACCOUNT` your joyent account name
- - `SDC_CLI_KEY_ID` the name of the SSH/RSA Key registerd with Joyent
- - `SDC_CLI_IDENTITY` path to the SSH/RSA key you have configured with your Joyent account
+All prices are for open-source servers (smartOS, Ubuntu, etc).  The prices of your induvidual machines *will* be higher than listed for licensed servers (windows, zeus, etc).
+
+Currently, the binary package(s) assume you will be running the commands from bash, and have the following environment variables set for the normal smartdc API:
+
+ - `SDC_URL` url for the Joyent API (something like `https://us-sw-1.api.joyentcloud.com/`)
+ - `SDC_ACCOUNT` your joyent account name
+ - `SDC_KEY_ID` the fingerprint of your SSH key
+
+If you are upgrading from `smartdc` v6x, note the name change for the required ENV variables, and click visit https://npmjs.org/package/smartdc to learn how to generate your ssh fingerprint

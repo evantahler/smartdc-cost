@@ -68,4 +68,5 @@ common.listmachinesCost(function(results){
   }
 
   foramts[format](results, period);
+  process.nextTick(function(){ process.exit(); });
 });
