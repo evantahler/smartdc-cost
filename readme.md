@@ -40,7 +40,7 @@ Extensions to the Joyent Smart Datacenter API for the financially minded.
            hour: '0.03' }
         },
        { name: 'Host2',
-         ip: '456.456.456.456',
+         ip: '156.156.156.156',
          type: 'Small 1GB',
          prices: { 
            day: '2.04',
@@ -56,7 +56,7 @@ Extensions to the Joyent Smart Datacenter API for the financially minded.
 
 ```bash
   Devices:
-   > Host2 @ 456.456.456.456 (Small 1GB) => $2.04/day
+   > Host2 @ 156.156.156.156 (Small 1GB) => $2.04/day
    > Host1 @ 123.123.123.123 (Extra Small 512 MB) => $0.72/day
 
   Total:
