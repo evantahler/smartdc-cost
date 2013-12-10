@@ -67,7 +67,8 @@ Extensions to the Joyent Smart Datacenter API for the financially minded.
 ```
 
 ## Notes
-There are some packages which joyent no longer lists prices for.  These prices are either coppied from earlier data, or assumed based on the most similar current package.
+
+Prices for current images are retrived from [Joyent's public listing](http://www.joyent.com/assets/js/pricing.json).  There are some packages which joyent no longer lists prices for.  These prices are either coppied from earlier data, or assumed based on the most similar current package.  These prices are stored in `/lib/old-prices.json`.  If prices are returned from Joyent's public listing, those results will be used rather than those in `old-prices.json`
 
 All prices are for open-source servers (smartOS, Ubuntu, etc).  The prices of your induvidual machines *will* be higher than listed for licensed servers (windows, zeus, etc).
 

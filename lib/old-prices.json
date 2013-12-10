@@ -1,0 +1,28 @@
+{
+  "Extra Small 512 MB":        0.03,
+  "Small 1GB":                 0.085,
+  "Medium 2GB":                0.17,
+  "Medium 4GB":                0.24,
+  "Large 8GB":                 0.36,
+  "Large 16GB":                0.64,
+  "XL 32GB":                   1.12,
+  "XXL 48GB":                  1.68,
+  "XXXL 64GB":                 2.24,
+  "XXXXL 80GB":                2.80,
+
+  "g3-standard-0.25-kvm":      0.015,
+  "g3-standard-0.5-kvm":       0.020,
+  "g3-standard-0.625-kvm":     0.020,
+  "g3-standard-7.5-kvm":       0.24,
+  "g3-standard-3.75-kvm":      0.120,
+
+  "g3-highcpu-8-kvm":          0.508,
+  
+  "g3-standard-0.25-smartos":  0.015,
+  "g3-standard-0.5-smartos":   0.020,
+  "g3-standard-0.625-smartos": 0.020,
+  "g3-standard-7.5-smartos":   0.24,
+  "g3-standard-3.75-smartos":  0.120,
+
+  "g3-highcpu-8-smartos":      0.508
+}

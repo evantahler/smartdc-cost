@@ -2,18 +2,19 @@
   "author": "Evan Tahler <evantahler@gmail.com>",
   "name": "smartdc-cost",
   "description": "Extra commands added to Joyent's smartdc package for the financially conscious",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "repository": {
     "type": "git",
     "url": "git://github.com/evantahler/smartdc-cost.git"
   },
-  "keywords": ["joyent", "smartdc", "smart-dc", "cash", "cost", "money"],
+  "keywords": ["joyent", "smartdc", "smart-dc", "cash", "cost", "money", "datacenter"],
   "engines": {
     "node": ">=0.6.0"
   },
   "dependencies": {
-    "smartdc":"7.x.x",
-    "optimist":"0.3.x"
+    "smartdc" :"7.x.x",
+    "optimist":"0.3.x",
+    "request" :"x"
   },
   "bin": {
     "sdc-listmachines-cost": "./bin/sdc-listmachines-cost"
