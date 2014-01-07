@@ -3,8 +3,6 @@ Extensions to the Joyent Smart Datacenter API for the financially minded.
 
 [![Nodei stats](https://nodei.co/npm/smartdc-cost.png?downloads=true)](https://npmjs.org/package/smartdc-cost)
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/evantahler/smartdc-cost/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
 ## Install
 `npm install smartdc-cost -g`
 
